@@ -18,3 +18,35 @@ ev3 = EV3Brick()
 
 # Write your program here.
 ev3.speaker.beep()
+
+def cupGrab(cupNumber):
+    #Move both motors foward, turn 90deg
+    #Measure cup location and go to it
+    locateCup()
+    #Deside color of cup
+    #Put cup in correct location, get positioned for next cup
+
+def locateCup():
+    #Use pixy cam to find cup!!!!
+
+    dist = 999
+    while dist > 10:
+        move(1)
+        #locate cup with pixy cam
+        dist = 000 #placeholder for distance from pixy cam
+        cuplocations = []
+        cuplocations.append(dist)
+        if (len(cuplocations) > 10):
+            cuplocations.pop(0)
+        #Average cup location
+        avgLocation = sum(cuplocations) / len(cuplocations)
+
+
+def move(speed):
+    #Move motor one
+    #Move motor two
+    pass
+
+def turn(angle):    # Positive is CW and Negative is CCW
+    #Turn robot to angle
+    pass
