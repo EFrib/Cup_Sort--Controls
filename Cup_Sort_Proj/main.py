@@ -20,7 +20,7 @@ ev3 = EV3Brick()
 ev3.speaker.beep()
 
 def cupGrab(cupNumber):
-    #Move both motors foward, turn 90deg
+    #Move both motors foward, turn 90deg        AHHHHH!!!!!
     #Measure cup location and go to it
     locateCup()
     #Deside color of cup
@@ -44,7 +44,7 @@ def locateCup():
 
 def move(speed):
     #Move motor one
-    #Move motor two
+    #Move motor twolksdflkjsdlkjflk
     pass
 
 def turn(angle):    # Positive is CW and Negative is CCW
