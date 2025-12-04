@@ -15,7 +15,7 @@ CUP_PLACEMENT = 0.5
 CUP_TOLERANCE = 50
 ANGLE_CHECK_TOLERANCE = 950
 SPEED = 50
-TURN_SPEED = 20
+TURN_SPEED = 1
 LOST_ANGLE_RANGE = 60
 ANGLE_RANGE = 80
 
@@ -25,6 +25,7 @@ USS = UltrasonicSensor(Port.S4)
 motorL = Motor(Port.A)
 motorR = Motor(Port.D)
 motorC = Motor(Port.C)
+motorGo = DriveBase(motorL, motorR, wheel_diameter=55.5, axle_track=154)
 
 
 
@@ -119,6 +120,17 @@ def move(Forward = True):
 
 
 def turn(DirCW):    # Positive is CW and Negative is CCW
+        if (DirCW):
+            motorGo.turn(TURN_SPEED)
+        else:
+            motorGo.turn(-TURN_SPEED)
+
+        
+
+
+
+'''
+def turn(DirCW):    # Positive is CW and Negative is CCW
     i = 0
     angle = 2
     while i < abs(angle):
@@ -132,8 +144,14 @@ def turn(DirCW):    # Positive is CW and Negative is CCW
         wait(10)
 
     motorL.dc(0)
-    motorR.dc(0)
+    motorR.dc(0) '''
 
+def move(Forward = True):
+    if Forward:
+        motorGo.straight(SPEED)
+    else:
+        motorGo.straight(-SPEED)
+        
 def grab(grab):
     if grab:
         motorC.run_angle(500, -50)
